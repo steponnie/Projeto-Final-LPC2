@@ -44,6 +44,14 @@ public class Carrinho {
         this.listaCompra.remove(produto);
     }
     
+    public ArrayList<String> listarNomes(){
+        ArrayList<String> listaNomes = new ArrayList();
+        for(int i = 0; i < this.listaCompra.size(); i++){
+            listaNomes.add(this.listaCompra.get(i).getNome());
+        }
+        return listaNomes;
+    }
+    
     public void calcularValorCompra(){
         for(int i = 0; i < this.listaCompra.size(); i++){
             this.valorCompra = this.valorCompra + this.listaCompra.get(i).getPreco();
