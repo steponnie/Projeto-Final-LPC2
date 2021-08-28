@@ -12,10 +12,9 @@ package logica;
 public class AlimentoQuilo extends Alimento{
     private double quilo;
 
-    public AlimentoQuilo(String nome, String codigoBarras, Fabricante fabricante, double preco, String grupo, double quilo) {
-        super(nome, codigoBarras, fabricante, preco, grupo);
+    public AlimentoQuilo(String nome, String codigoBarras, String descricao, Fabricante fabricante, double preco, String grupo, double quilo) {
+        super(nome, codigoBarras, descricao, fabricante, preco, grupo);
         this.quilo = quilo;
-        
     } 
 
     public double getQuilo() {

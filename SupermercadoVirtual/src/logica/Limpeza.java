@@ -9,22 +9,14 @@ package logica;
  *
  * @author steph
  */
-public class Higiene extends Produto {
+public class Limpeza extends Produto {
     protected boolean corporal; //true eh higiene pessoal e false eh higienizacao de ambiente
     private String grupo;//sabonete, shampoo, amaciante...
-    
 
-    public Higiene(String nome, String codigoBarras, Fabricante fabricante, double preco, boolean corporal, String grupo) {
-        super(nome, codigoBarras, fabricante, preco);
+    public Limpeza(String nome, String codigoBarras, String descricao, Fabricante fabricante, double preco, boolean corporal, String grupo) {
+        super(nome, codigoBarras, descricao, fabricante, preco);
         this.corporal = corporal;
         this.grupo = grupo;
-    }
-    
-    @Override
-    public void setTipo(){
-        this.isAlimento = false;
-        this.isHigiene = true;
-        this.isBebida = false;
     }
 
     public boolean isCorporal() {
@@ -43,4 +35,8 @@ public class Higiene extends Produto {
         this.grupo = grupo;
     }
     
+    @Override
+    public void setCategoria() {
+        this.categoria = "limpeza";
+    }
 }

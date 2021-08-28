@@ -12,10 +12,9 @@ package logica;
 public class AlimentoUnitario extends Alimento{
     private int quantidade;
 
-    public AlimentoUnitario(String nome, String codigoBarras, Fabricante fabricante, double preco, String grupo, int quantidade) {
-        super(nome, codigoBarras, fabricante, preco, grupo);
+    public AlimentoUnitario(String nome, String codigoBarras, String descricao, Fabricante fabricante, double preco, String grupo, int quantidade) {
+        super(nome, codigoBarras, descricao, fabricante, preco, grupo);
         this.quantidade = quantidade;
-        
     }
 
     public int getQuantidade() {
@@ -35,5 +34,4 @@ public class AlimentoUnitario extends Alimento{
     public double calculaPreco(){
         return this.preco = this.preco * this.quantidade;
     }
-    
 }
