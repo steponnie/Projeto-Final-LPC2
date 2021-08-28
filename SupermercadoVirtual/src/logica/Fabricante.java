@@ -13,9 +13,9 @@ public class Fabricante {
     private String nome;
     private String contato;
 
-    public Fabricante(String nome, String telefone) {
+    public Fabricante(String nome, String contato) {
         this.nome = nome;
-        this.contato = telefone;
+        this.contato = contato;
     }
 
     public String getNome() {
