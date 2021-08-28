@@ -10,7 +10,7 @@ package logica;
  * @author steph
  */
 public abstract class Produto{
-    protected boolean isAlimento, isHigiene, isDecoracao;
+    protected boolean isAlimento, isHigiene, isBebida;
     private String nome, codigoBarras;
     private Fabricante fabricante;
     protected double preco;
@@ -25,7 +25,7 @@ public abstract class Produto{
     public void setTipo(){
         this.isAlimento = isAlimento;
         this.isHigiene = isHigiene;
-        this.isDecoracao = isDecoracao;
+        this.isBebida = isBebida;
     }
     
     public String getNome() {

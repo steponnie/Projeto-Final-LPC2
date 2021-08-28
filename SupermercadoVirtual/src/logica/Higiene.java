@@ -14,23 +14,24 @@ public class Higiene extends Produto {
     private String grupo;//sabonete, shampoo, amaciante...
     
 
-    public Higiene(String nome, String codigoBarras, Fabricante fabricante, double preco, String grupo) {
+    public Higiene(String nome, String codigoBarras, Fabricante fabricante, double preco, boolean corporal, String grupo) {
         super(nome, codigoBarras, fabricante, preco);
         this.corporal = corporal;
+        this.grupo = grupo;
     }
     
     @Override
     public void setTipo(){
         this.isAlimento = false;
         this.isHigiene = true;
-        this.isDecoracao = false;
+        this.isBebida = false;
     }
 
     public boolean isCorporal() {
         return corporal;
     }
 
-    public void setCorporal() {
+    public void setCorporal(boolean corporal) {
         this.corporal = corporal;
     } 
 

@@ -22,7 +22,7 @@ public abstract class Alimento extends Produto {
     public void setTipo(){
         this.isAlimento = true;
         this.isHigiene = false;
-        this.isDecoracao = false;
+        this.isBebida = false;
     }
 
     public String getGrupo() {
