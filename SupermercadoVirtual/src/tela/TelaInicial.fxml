@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="746.0" style="-fx-background-color: #202030;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tela.TelaInicialController">
+   <children>
+      <Label alignment="CENTER" layoutX="195.0" layoutY="155.0" prefHeight="82.0" prefWidth="356.0" text="Por favor, digite seu nome:" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+         <font>
+            <Font name="Ubuntu" size="29.0" />
+         </font>
+      </Label>
+      <Accordion layoutX="268.0" layoutY="263.0" />
+      <TextField fx:id="customerName" alignment="CENTER" layoutX="259.0" layoutY="253.0" prefHeight="45.0" prefWidth="228.0" />
+      <Button fx:id="entrarBtn" layoutX="327.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchToMainScreen" prefHeight="35.0" prefWidth="93.0" text="Entrar" />
+   </children>
+</AnchorPane>

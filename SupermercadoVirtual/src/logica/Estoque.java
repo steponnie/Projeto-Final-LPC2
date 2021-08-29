@@ -12,18 +12,22 @@ import java.util.ArrayList;
  * @author steph
  */
 public class Estoque {
-    private ArrayList<Produto> listaEstoque;
+    private static ArrayList<Produto> listaEstoque;
 
     public Estoque() {
         this.listaEstoque = new ArrayList();
     }
+    
+    public void adicionarProduto(Produto produto){
+        listaEstoque.add(produto);
+    }
 
-    public ArrayList<Produto> getListaEstoque() {
+    public static ArrayList<Produto> getListaEstoque() { 
         return listaEstoque;
     }
 
     public void setListaEstoque(ArrayList<Produto> listaEstoque) {
-        this.listaEstoque = listaEstoque;
+        listaEstoque = listaEstoque;
     }
     
     public ArrayList<Produto> categorizarItem(String categoria){
