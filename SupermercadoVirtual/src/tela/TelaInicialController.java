@@ -44,8 +44,7 @@ public class TelaInicialController implements Initializable {
     }
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
+    public void initialize(URL url, ResourceBundle rb) {    
     }    
     
 }

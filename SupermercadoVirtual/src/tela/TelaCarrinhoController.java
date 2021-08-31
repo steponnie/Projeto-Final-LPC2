@@ -47,7 +47,7 @@ public class TelaCarrinhoController implements Initializable {
     @FXML private Button finishBuy;
     @FXML private Button goBack;
     
-    
+    //mesma logica do addNewRow anterior
     public void addNewRow(Produto prod){
         actualPrefHeight += 40;
         listGridPane.setPrefHeight(actualPrefHeight);
@@ -61,6 +61,7 @@ public class TelaCarrinhoController implements Initializable {
         listGridPane.add(actualRemoveButton,1,actualRow);
     }
     
+    //lista os itens do carrinho
     private void listShoppingCart(){
         ArrayList<Produto> myCart = this.carrinho.getListaCompra();
         for(Produto prod : myCart){
@@ -68,33 +69,26 @@ public class TelaCarrinhoController implements Initializable {
         }
     }
     
-    public void updateShoppingCartList(){
-        while(listGridPane.getRowConstraints().size() > 0){
-            listGridPane.getRowConstraints().remove(0);
-        }
-
-        while(listGridPane.getColumnConstraints().size() > 0){
-            listGridPane.getColumnConstraints().remove(0);
-        }
-        listShoppingCart();
-    }
-    
-    public void backToMainScreen() throws IOException{
-        Stage actualStage = (Stage) goBack.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPrincipal.fxml"));
-        Parent root = (Parent)loader.load();
-        actualStage.setScene(new Scene(root)); 
-    }
-    
-    
-    
+    //remove item do carrinho e chama updateShoppingCartList()
     public void removeFromShoppingCart(ActionEvent ev){
         int productIndex = GridPane.getRowIndex((Node)ev.getSource());
         carrinho.removerProduto(productIndex);
         this.updateShoppingCartList();
     }
     
+    //
+    public void updateShoppingCartList(){
+        //Atualizar o carrinho apos remover itens
+    }
     
+    
+    //Volta para a tela principal
+    public void backToMainScreen() throws IOException{
+        Stage actualStage = (Stage) goBack.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPrincipal.fxml"));
+        Parent root = (Parent)loader.load();
+        actualStage.setScene(new Scene(root)); 
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
