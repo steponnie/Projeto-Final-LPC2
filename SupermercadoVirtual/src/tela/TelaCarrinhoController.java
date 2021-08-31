@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logica.Carrinho;
 import logica.Estoque;
@@ -96,6 +97,18 @@ public class TelaCarrinhoController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPrincipal.fxml"));
         Parent root = (Parent)loader.load();
         actualStage.setScene(new Scene(root)); 
+    }
+    
+    //finalizar a compra NAO TEMINEI AINDA
+    public void finishBuyPressed(ActionEvent ev) throws IOException{
+        Stage actualStage = (Stage) finishBuy.getScene().getWindow();
+        String arq = "NotaFiscal.txt";
+        Text texto = new Text();
+        texto.setText("Cumpom fiscal\n"
+                + "produto\t\tquantia\t\tpreço\n");
+        ArquivoTexto.write(arq, texto);
+        ArquivoTexto.read(arq);
+        actualStage.close();
     }
     
     @Override

@@ -25,7 +25,7 @@
             <Font name="Ubuntu" size="39.0" />
          </font>
       </Label>
-      <Button fx:id="finishBuy" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="493.0" layoutY="450.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="56.0" prefWidth="209.0" scaleShape="false" style="-fx-background-color: white; -fx-font-weight: bold;" text="Finalizar Compra">
+      <Button fx:id="finishBuy" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="493.0" layoutY="450.0" mnemonicParsing="false" onAction="#finishBuyPressed" pickOnBounds="false" prefHeight="56.0" prefWidth="209.0" scaleShape="false" style="-fx-background-color: white; -fx-font-weight: bold;" text="Finalizar Compra">
          <font>
             <Font name="Ubuntu" size="18.0" />
          </font>
