@@ -46,10 +46,14 @@ public class SupermercadoVirtual extends Application {
                 new Fabricante("veja", "123456789"),35.00,false,"Grupo4");
         
         Estoque estoque = new Estoque();
+        Carrinho carrinho = new Carrinho();
         estoque.adicionarProduto(a1);
-        estoque.adicionarProduto(a1);
+        estoque.adicionarProduto(a2);
         estoque.adicionarProduto(b1);
         estoque.adicionarProduto(l1);
+        
+        Estoque.REFERENCIAESTOQUE = estoque;
+        Carrinho.REFERENCIACARRINHO = carrinho;
         launch(args);
     }
    

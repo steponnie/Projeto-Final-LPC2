@@ -12,7 +12,10 @@ import java.util.ArrayList;
  * @author steph
  */
 public class Estoque {
-    private static ArrayList<Produto> listaEstoque;
+    
+    public static Estoque REFERENCIAESTOQUE;
+    
+    private ArrayList<Produto> listaEstoque;
 
     public Estoque() {
         this.listaEstoque = new ArrayList();
@@ -22,7 +25,7 @@ public class Estoque {
         listaEstoque.add(produto);
     }
 
-    public static ArrayList<Produto> getListaEstoque() { 
+    public ArrayList<Produto> getListaEstoque() { 
         return listaEstoque;
     }
 
@@ -48,4 +51,10 @@ public class Estoque {
         }
         return null;
     }
+    
+    public Produto buscarItem(int indice){
+        return this.listaEstoque.get(indice);
+    }
+    
+    
 }

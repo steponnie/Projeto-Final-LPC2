@@ -26,8 +26,7 @@ import logica.Estoque;
  */
 public class TelaInicialController implements Initializable {
     
-    private Estoque estoque;
-    
+    public static String CUSTOMERNAME;
     @FXML
     private TextField customerName;
     
@@ -36,13 +35,10 @@ public class TelaInicialController implements Initializable {
 
     public void switchToMainScreen(ActionEvent ev) throws IOException{
         if(!(customerName.getText().equals(""))){
+            CUSTOMERNAME = this.customerName.getText();
             Stage actualStage = (Stage) entrarBtn.getScene().getWindow();
-            actualStage.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPrincipal.fxml"));
             Parent root = (Parent)loader.load();
-            TelaPrincipalController controller = loader.getController();
-            controller.setUserName(customerName.getText());
-            actualStage.show();
             actualStage.setScene(new Scene(root)); 
         }
     }

@@ -12,6 +12,9 @@ import java.util.ArrayList;
  * @author steph
  */
 public class Carrinho {
+    
+    public static Carrinho REFERENCIACARRINHO;
+    
     private double valorCompra;
     private int quantidadeItens;
     private ArrayList<Produto> listaCompra;
@@ -42,6 +45,10 @@ public class Carrinho {
     
     public void removerProduto(Produto produto){
         this.listaCompra.remove(produto);
+    }
+    
+    public void removerProduto(int indice){
+        this.listaCompra.remove(indice);
     }
     
     public ArrayList<String> listarNomes(){
