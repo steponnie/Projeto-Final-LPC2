@@ -27,7 +27,7 @@ public class Bebida extends Produto{
 
     public boolean isAlcoolico() {
         return alcoolico;
-    }
+    } 
 
     public void setAlcoolico(boolean alcoolico) {
         this.alcoolico = alcoolico;

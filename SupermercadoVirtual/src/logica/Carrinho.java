@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -18,9 +14,11 @@ public class Carrinho {
     private double valorCompra;
     private int quantidadeItens;
     private ArrayList<Produto> listaCompra;
+    private HashMap<String, Integer> quantificadorProduto;
 
     public Carrinho() {
         this.listaCompra  = new ArrayList();
+        this.quantificadorProduto = new HashMap<>();
     }
 
     public double getValorCompra() {
@@ -37,6 +35,14 @@ public class Carrinho {
 
     public void setListaCompra(ArrayList<Produto> listaCompra) {
         this.listaCompra = listaCompra;
+    }
+    
+    public HashMap<String, Integer> getQuantificadorProduto() {
+        return quantificadorProduto;
+    }
+
+    public void setQuantificadorProduto(HashMap<String, Integer> quantificadorProduto) {
+        this.quantificadorProduto = quantificadorProduto;
     }
     
     public void adicionarProduto(Produto produto){
@@ -68,4 +74,25 @@ public class Carrinho {
     public void calcularQuantidadeItens(){
         this.quantidadeItens = this.listaCompra.size();
     }
+    
+    /*public boolean verificarProduto(String nomeProduto){
+        for(int i = 0; i < this.listaCompra.size(); i++){
+            if(nomeProduto.equals(this.listaCompra.get(i).getNome())){
+                return true;
+            }
+        }
+        return false;
+    }*/
+    
+    public void contarProduto(){
+        for(int i = 0; i < this.listaCompra.size(); i++){
+            if(this.quantificadorProduto.containsKey(this.listaCompra.get(i).getNome())){
+                this.quantificadorProduto.replace(this.listaCompra.get(i).getNome(), this.quantificadorProduto.get(this.listaCompra.get(i).getNome())+1);
+            }
+            else{
+                this.quantificadorProduto.put(this.listaCompra.get(i).getNome(), 1);
+            }
+        }
+    }
+    
 }

@@ -49,16 +49,24 @@ public class TelaCarrinhoController implements Initializable {
     
     //mesma logica do addNewRow anterior
     public void addNewRow(Produto prod){
-        actualPrefHeight += 40;
-        listGridPane.setPrefHeight(actualPrefHeight);
-        actualRow += 1;
-        listGridPane.addRow(actualRow);
-        
-        Button actualRemoveButton = new Button("-");
-        actualRemoveButton.setOnAction(event -> {this.removeFromShoppingCart(event);});
-        
-        listGridPane.add(new Label(prod.getNome()), 0, actualRow);
-        listGridPane.add(actualRemoveButton,1,actualRow);
+        if(carrinho.getQuantificadorProduto().containsKey(prod.getNome())){
+            String quantidade = new String();
+            quantidade = String.valueOf(carrinho.getQuantificadorProduto().get(prod.getNome()));
+            this.listGridPane.add(new Label(quantidade), 1, actualRow);
+            
+        }
+        else{
+            actualPrefHeight += 40;
+            listGridPane.setPrefHeight(actualPrefHeight);
+            actualRow += 1;
+            listGridPane.addRow(actualRow);
+            
+            Button actualRemoveButton = new Button("-");
+            actualRemoveButton.setOnAction(event -> {this.removeFromShoppingCart(event);});
+
+            listGridPane.add(new Label(prod.getNome()), 0, actualRow);
+            listGridPane.add(actualRemoveButton,2,actualRow);
+        }
     }
     
     //lista os itens do carrinho
@@ -101,3 +109,12 @@ public class TelaCarrinhoController implements Initializable {
     }
     
 }
+/*
+ideias futuras
+
+    fazer percorrer todas as linhas do grid e comparar o nome dos textos das labels com o nome dos produtos
+            retorna a linha 
+    indice do produto é referente a linha do grid em que o produto se encontra
+
+
+*/
