@@ -32,4 +32,9 @@ public class Bebida extends Produto{
     public void setAlcoolico(boolean alcoolico) {
         this.alcoolico = alcoolico;
     }
+    
+    @Override
+    public double calculaPreco(){
+        return this.preco = this.preco * this.quantidade;
+    }
 }

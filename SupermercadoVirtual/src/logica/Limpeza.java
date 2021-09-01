@@ -12,11 +12,13 @@ package logica;
 public class Limpeza extends Produto {
     protected boolean corporal; //true eh higiene pessoal e false eh higienizacao de ambiente
     private String grupo;//sabonete, shampoo, amaciante...
+    private int quantidade;
 
-    public Limpeza(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco, boolean corporal, String grupo) {
+    public Limpeza(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco, boolean corporal, String grupo, int quantidade) {
         super(nome, codigoBarras, descricao, categoria, fabricante, preco);
         this.corporal = corporal;
         this.grupo = grupo;
+        this.quantidade  = quantidade;
     }
 
     public boolean isCorporal() {
@@ -34,9 +36,22 @@ public class Limpeza extends Produto {
     public void setGrupo(String grupo) {
         this.grupo = grupo;
     }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
     
     @Override
     public void setCategoria() {
         this.categoria = "limpeza";
+    }
+    
+    @Override
+    public double calculaPreco(){
+        return this.preco = this.preco * this.quantidade;
     }
 }

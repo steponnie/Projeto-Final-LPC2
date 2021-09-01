@@ -43,7 +43,7 @@ public class SupermercadoVirtual extends Application {
         Bebida b1 = new Bebida("Bebida1","33333","Bebida Alcoolica", "Categoria3",
                 new Fabricante("nao consigo ler to bebado", "da minha casa"),2.50,30,true);
         Limpeza l1 = new Limpeza("Limpeza1","444444","Veja maxima remocao de gorduras", "Categoria4",
-                new Fabricante("veja", "123456789"),35.00,false,"Grupo4");
+                new Fabricante("veja", "123456789"),35.00,false,"Grupo4", 2);
         
         Estoque estoque = new Estoque();
         Carrinho carrinho = new Carrinho();
