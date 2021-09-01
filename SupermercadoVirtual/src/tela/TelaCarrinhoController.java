@@ -8,6 +8,7 @@ package tela;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,32 +51,27 @@ public class TelaCarrinhoController implements Initializable {
     
     //mesma logica do addNewRow anterior
     public void addNewRow(Produto prod){
-        if(carrinho.getQuantificadorProduto().containsKey(prod.getNome())){
-            String quantidade = new String();
-            quantidade = String.valueOf(carrinho.getQuantificadorProduto().get(prod.getNome()));
-            this.listGridPane.add(new Label(quantidade), 1, actualRow);
-            
-        }
-        else{
-            actualPrefHeight += 40;
-            listGridPane.setPrefHeight(actualPrefHeight);
-            actualRow += 1;
-            listGridPane.addRow(actualRow);
-            
-            Button actualRemoveButton = new Button("-");
-            actualRemoveButton.setOnAction(event -> {this.removeFromShoppingCart(event);});
+        actualPrefHeight += 40;
+        listGridPane.setPrefHeight(actualPrefHeight);
+        actualRow += 1;
+        listGridPane.addRow(actualRow);
+        
+        Button actualRemoveButton = new Button("-");
+        actualRemoveButton.setOnAction(event -> {this.removeFromShoppingCart(event);});
 
-            listGridPane.add(new Label(prod.getNome()), 0, actualRow);
-            listGridPane.add(actualRemoveButton,2,actualRow);
-        }
+        listGridPane.add(new Label(prod.getNome()), 0, actualRow);
+        String quantidade = new String();
+        quantidade = String.valueOf(carrinho.getQuantificadorProduto().get(prod)); //transforma a quantidade de cada produto em string
+        listGridPane.add(new Label(quantidade), 1, actualRow);//adiciona a quantidade de produto na segunda coluna
+        listGridPane.add(actualRemoveButton,2,actualRow);
+        
     }
     
     //lista os itens do carrinho
     private void listShoppingCart(){
-        ArrayList<Produto> myCart = this.carrinho.getListaCompra();
-        for(Produto prod : myCart){
-            addNewRow(prod);
-        }
+        carrinho.contarProduto();
+        carrinho.getQuantificadorProduto().forEach((produto, quantidade) -> addNewRow(produto));
+        carrinho.getQuantificadorProduto().clear();
     }
     
     //remove item do carrinho e chama updateShoppingCartList()

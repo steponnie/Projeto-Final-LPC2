@@ -14,7 +14,7 @@ public class Carrinho {
     private double valorCompra;
     private int quantidadeItens;
     private ArrayList<Produto> listaCompra;
-    private HashMap<String, Integer> quantificadorProduto;
+    private HashMap<Produto, Integer> quantificadorProduto;
 
     public Carrinho() {
         this.listaCompra  = new ArrayList();
@@ -37,11 +37,11 @@ public class Carrinho {
         this.listaCompra = listaCompra;
     }
     
-    public HashMap<String, Integer> getQuantificadorProduto() {
+    public HashMap<Produto, Integer> getQuantificadorProduto() {
         return quantificadorProduto;
     }
 
-    public void setQuantificadorProduto(HashMap<String, Integer> quantificadorProduto) {
+    public void setQuantificadorProduto(HashMap<Produto, Integer> quantificadorProduto) {
         this.quantificadorProduto = quantificadorProduto;
     }
     
@@ -75,24 +75,14 @@ public class Carrinho {
         this.quantidadeItens = this.listaCompra.size();
     }
     
-    /*public boolean verificarProduto(String nomeProduto){
+    public void contarProduto(){ //coloca todos os produtos adicionados no carrinho em um hashmap, sendo a key o produto e o value a quantidade
         for(int i = 0; i < this.listaCompra.size(); i++){
-            if(nomeProduto.equals(this.listaCompra.get(i).getNome())){
-                return true;
-            }
-        }
-        return false;
-    }*/
-    
-    public void contarProduto(){
-        for(int i = 0; i < this.listaCompra.size(); i++){
-            if(this.quantificadorProduto.containsKey(this.listaCompra.get(i).getNome())){
-                this.quantificadorProduto.replace(this.listaCompra.get(i).getNome(), this.quantificadorProduto.get(this.listaCompra.get(i).getNome())+1);
+            if(this.quantificadorProduto.containsKey(this.listaCompra.get(i))){
+                this.quantificadorProduto.replace(this.listaCompra.get(i), this.quantificadorProduto.get(this.listaCompra.get(i))+1);
             }
             else{
-                this.quantificadorProduto.put(this.listaCompra.get(i).getNome(), 1);
+                this.quantificadorProduto.put(this.listaCompra.get(i), 1);
             }
         }
     }
-    
 }
