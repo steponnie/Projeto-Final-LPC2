@@ -1,3 +1,6 @@
-Text[text="Cumpom fiscal
-produto		quantia		preço
-", x=0.0, y=0.0, alignment=LEFT, origin=BASELINE, boundsType=LOGICAL, font=Font[name=System Regular, family=System, style=Regular, size=13.0], fontSmoothingType=GRAY, fill=0x000000ff]
+SUPERMERCADO VIRTUAL
+CNPJ: 12.3234.2343 	 Stephanie Gomes
+telefone: (31)98002-8922
+
+PRODUTO 		 quantidade 	 preço
+

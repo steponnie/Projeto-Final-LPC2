@@ -137,9 +137,10 @@ public class TelaCarrinhoController implements Initializable {
     public void finishBuyPressed(ActionEvent ev) throws IOException{
         Stage actualStage = (Stage) finishBuy.getScene().getWindow();
         String arq = "NotaFiscal.txt";
-        Text texto = new Text();
-        texto.setText("Cumpom fiscal\n"
-                + "produto\t\tquantia\t\tpreço\n");
+        String texto = new String();
+        texto=	"\tSUPERMERCADO VIRTUAL\n" + "CNPJ: 12.3234.2343 \t Stephanie Gomes\n" +
+	"\ttelefone: (31)98002-8922\n\n" + "PRODUTO \t\t quantidade \t preço\n";
+
         ArquivoTexto.write(arq, texto);
         ArquivoTexto.read(arq);
         actualStage.close();

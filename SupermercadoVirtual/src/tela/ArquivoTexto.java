@@ -7,9 +7,29 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-import javafx.scene.text.Text;
+import logica.Carrinho;
+
 
 public class ArquivoTexto {
+    private Carrinho carrinho;
+    private String produtos;
+
+    public Carrinho getCarrinho() {
+        return carrinho;
+    }
+
+    public void setCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
+    }
+
+    public String getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(String produtos) {
+        this.produtos = produtos;
+    }
+    
     //método de leitura
     public static String read(String caminhoArquivo){
         String conteudo = "";
@@ -44,7 +64,7 @@ public class ArquivoTexto {
         }
     }
     //método de gravação
-    public static boolean write(String caminhoArquivo, Text texto){
+    public static boolean write(String caminhoArquivo, String texto){
         try {
             FileWriter arq = new FileWriter(caminhoArquivo);
             PrintWriter gravarArq = new PrintWriter(arq);
@@ -56,5 +76,14 @@ public class ArquivoTexto {
             System.err.println(ex.getMessage());
             return false;
         }
-    }      
+    }
+    
+    //mudar de lugar depois
+    public String produtosNotaFiscal(){
+        carrinho.getQuantificadorProduto().forEach((produto,quantidade) -> setProdutos(getProdutos() +"\n"+
+                produto.getNome() + "\t\t"+ quantidade + "x" + produto.getPreco() +   ));
+         
+        
+        return "";
+    }
 }
