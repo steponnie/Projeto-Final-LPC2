@@ -13,8 +13,8 @@ public class Limpeza extends Produto {
     protected boolean corporal; //true eh higiene pessoal e false eh higienizacao de ambiente
     private String grupo;//sabonete, shampoo, amaciante...
 
-    public Limpeza(String nome, String codigoBarras, String descricao, Fabricante fabricante, double preco, boolean corporal, String grupo) {
-        super(nome, codigoBarras, descricao, fabricante, preco);
+    public Limpeza(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco, boolean corporal, String grupo) {
+        super(nome, codigoBarras, descricao, categoria, fabricante, preco);
         this.corporal = corporal;
         this.grupo = grupo;
     }

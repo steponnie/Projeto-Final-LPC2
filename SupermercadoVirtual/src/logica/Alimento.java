@@ -13,8 +13,8 @@ public abstract class Alimento extends Produto {
     protected boolean unitario; //true eh unitario e false eh a quilo
     private String grupo;//na vdd ou é um ou é outro. secos e frios é quantidade. resto é peso
     
-    public Alimento(String nome, String codigoBarras, String descricao, Fabricante fabricante, double preco, String grupo) {
-        super(nome, codigoBarras, descricao, fabricante, preco);
+    public Alimento(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco, String grupo) {
+        super(nome, codigoBarras, descricao, categoria, fabricante, preco);
         this.grupo = grupo;
     }
 

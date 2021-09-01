@@ -36,7 +36,7 @@ public class Estoque {
     public ArrayList<Produto> categorizarItem(String categoria){
         ArrayList<Produto> itemCategoria = new ArrayList();
         for(int i = 0; i<this.listaEstoque.size(); i++){
-            if(this.listaEstoque.get(i).categoria.equals(categoria)){
+            if(this.listaEstoque.get(i).getCategoria().equals(categoria)){
                 itemCategoria.add(this.listaEstoque.get(i));
             }
         }

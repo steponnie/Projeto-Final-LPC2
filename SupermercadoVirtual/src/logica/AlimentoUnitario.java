@@ -12,8 +12,8 @@ package logica;
 public class AlimentoUnitario extends Alimento{
     private int quantidade;
 
-    public AlimentoUnitario(String nome, String codigoBarras, String descricao, Fabricante fabricante, double preco, String grupo, int quantidade) {
-        super(nome, codigoBarras, descricao, fabricante, preco, grupo);
+    public AlimentoUnitario(String nome, String codigoBarras, String descricao,String categoria, Fabricante fabricante, double preco, String grupo, int quantidade) {
+        super(nome, codigoBarras, descricao, categoria, fabricante, preco, grupo);
         this.quantidade = quantidade;
     }
 

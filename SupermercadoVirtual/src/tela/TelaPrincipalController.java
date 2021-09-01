@@ -13,11 +13,17 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import logica.Produto;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import logica.Carrinho;
 
@@ -31,6 +37,8 @@ import logica.Fabricante;
  * @author hugo
  */
 public class TelaPrincipalController implements Initializable {
+    
+    private HashMap<Integer,Produto> productListPositionTracker;
     
     Estoque estoque;
     Carrinho carrinho;
@@ -58,6 +66,29 @@ public class TelaPrincipalController implements Initializable {
     @FXML private Label infoManufacturerField;
     @FXML private Label infoBarcodeField;
     
+    @FXML private ChoiceBox categorias;
+    
+    
+    private void setupChoiceBox(){
+        categorias.setOnAction((event) -> FiltrarItem());
+        
+        categorias.getItems().add("(Nenhum)");
+        categorias.getItems().add("Categoria1");
+        categorias.getItems().add("Categoria2");
+        categorias.getItems().add("Categoria3");
+        categorias.getItems().add("Categoria4");
+    }
+    
+    public void FiltrarItem(){
+        if((categorias.getValue()).equals("(Nenhum)")){
+            updateListaEstoque(estoque.getListaEstoque());
+        }
+        else{
+            ArrayList<Produto> produtosCategorizados = estoque.categorizarItem((String)categorias.getValue());
+            updateListaEstoque(produtosCategorizados);
+        }
+        
+    }
     
     //Adiciona nova linha com as informações do produto
     public void addNewRow(Produto prod){
@@ -78,6 +109,8 @@ public class TelaPrincipalController implements Initializable {
         listGridPane.add(new Label(prod.getCategoria()), 1, actualRow);
         listGridPane.add(actualAddButton,2,actualRow);
         listGridPane.add(actualInfoButton,3,actualRow);
+        
+        productListPositionTracker.put(actualRow, prod);
     }
     
     //Desliga a visualizacao dos itens e liga a visualizacao do painel de informacoes
@@ -85,13 +118,14 @@ public class TelaPrincipalController implements Initializable {
         productList.setVisible(false);
         olaLabel.setVisible(false);
         nameLabel.setVisible(false);
+        categorias.setVisible(false);
         
         shoppingCart.setVisible(false);
         shoppingCart.isDisabled();
         
         productInfoPanel.setVisible(true);
         int productIndex = GridPane.getRowIndex((Node)event.getSource());
-        this.loadProductInfo(productIndex-1);
+        this.loadProductInfo(productIndex);
         
     }
     
@@ -102,6 +136,7 @@ public class TelaPrincipalController implements Initializable {
         productList.setVisible(true);
         olaLabel.setVisible(true);
         nameLabel.setVisible(true);
+        categorias.setVisible(true);
         
         shoppingCart.setVisible(true);
         shoppingCart.isDisabled();
@@ -109,7 +144,7 @@ public class TelaPrincipalController implements Initializable {
     
     //carrega as informacoes do produto e preenche os campos de informacao
     public void loadProductInfo(int index){
-        Produto prod = estoque.buscarItem(index);
+        Produto prod = productListPositionTracker.get(index);
         infoNameField.setText(prod.getNome());
         infoPriceField.setText(String.format("R$%.2f",prod.getPreco()));
         infoDescriptionField.setText(prod.getDescricao());
@@ -129,14 +164,35 @@ public class TelaPrincipalController implements Initializable {
     //adiciona item para o carrinho
     public void addToShoppingCart(ActionEvent event){
         int productIndex = GridPane.getRowIndex((Node)event.getSource());
-        Produto prod = estoque.buscarItem(productIndex-1);
+        Produto prod = productListPositionTracker.get(productIndex);
         carrinho.adicionarProduto(prod);
     }
     
     //Inicializa o Estoque: Pega a array e cria a lista
-    public void initializeEstoque(){
-        ArrayList<Produto> produtosDisponiveis = estoque.getListaEstoque();
-        for(Produto prod : produtosDisponiveis){
+    public void updateListaEstoque(ArrayList<Produto> produtos){
+        listGridPane = new GridPane();
+        
+        ColumnConstraints col1Config = new ColumnConstraints(338);
+        ColumnConstraints col2Config = new ColumnConstraints(211);
+        ColumnConstraints col3Config = new ColumnConstraints(52);
+        ColumnConstraints col4Config = new ColumnConstraints(52);
+        
+        col2Config.setHalignment(HPos.CENTER);
+        col3Config.setHalignment(HPos.CENTER);
+        col4Config.setHalignment(HPos.CENTER);
+        
+        listGridPane.getColumnConstraints().add(col1Config);
+        listGridPane.getColumnConstraints().add(col2Config);
+        listGridPane.getColumnConstraints().add(col3Config);
+        listGridPane.getColumnConstraints().add(col4Config);
+        
+        listGridPane.setPrefHeight(40);
+        listGridPane.setPrefWidth(654);
+        
+        listGridPane.setPadding(new Insets(0,0,0,5));        
+        productList.setContent(listGridPane);
+        
+        for(Produto prod : produtos){
             this.addNewRow(prod);
         }
     }
@@ -151,7 +207,11 @@ public class TelaPrincipalController implements Initializable {
         this.estoque = Estoque.REFERENCIAESTOQUE;
         this.carrinho = Carrinho.REFERENCIACARRINHO;
         
-        initializeEstoque();
+        productListPositionTracker = new HashMap<>();
+        
+        setupChoiceBox();
+        
+        updateListaEstoque(estoque.getListaEstoque());
     }    
     
 }

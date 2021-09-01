@@ -6,8 +6,8 @@ public class Bebida extends Produto{
     private double quantidade;
     private boolean alcoolico;
 
-    public Bebida(String nome, String codigoBarras, String descricao, Fabricante fornecedor, double preco, double quantidade, boolean alcoolico) {
-         super(nome, codigoBarras, descricao, fornecedor, preco);
+    public Bebida(String nome, String codigoBarras, String descricao, String categoria, Fabricante fornecedor, double preco, double quantidade, boolean alcoolico) {
+         super(nome, codigoBarras, descricao, categoria, fornecedor, preco);
          this.quantidade = quantidade;
          this.alcoolico = alcoolico;
     }

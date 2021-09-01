@@ -36,13 +36,13 @@ public class SupermercadoVirtual extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AlimentoQuilo a1 = new AlimentoQuilo("AlimentoQuilo1","1111111","Primeiro Alimento Quilo", 
+        AlimentoQuilo a1 = new AlimentoQuilo("AlimentoQuilo1","1111111","Primeiro Alimento Quilo", "Categoria1",
                 new Fabricante("Pfizer", "Chama no zap"),10.00,"Grupo1",20.05);
-        AlimentoUnitario a2 = new AlimentoUnitario("AlimentoUnitario1","222222","Primeiro Alimento Unitario", 
+        AlimentoUnitario a2 = new AlimentoUnitario("AlimentoUnitario1","222222","Primeiro Alimento Unitario",  "Categoria2",
                 new Fabricante("Jansen", "Tbm no zap"),5.00,"Grupo2",2);
-        Bebida b1 = new Bebida("Bebida1","33333","Bebida Alcoolica", 
+        Bebida b1 = new Bebida("Bebida1","33333","Bebida Alcoolica", "Categoria3",
                 new Fabricante("nao consigo ler to bebado", "da minha casa"),2.50,30,true);
-        Limpeza l1 = new Limpeza("Limpeza1","444444","Veja maxima remocao de gorduras", 
+        Limpeza l1 = new Limpeza("Limpeza1","444444","Veja maxima remocao de gorduras", "Categoria4",
                 new Fabricante("veja", "123456789"),35.00,false,"Grupo4");
         
         Estoque estoque = new Estoque();

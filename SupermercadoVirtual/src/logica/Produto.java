@@ -16,10 +16,11 @@ public abstract class Produto{
     protected double preco;
     
 
-    public Produto(String nome, String codigoBarras, String descricao, Fabricante fabricante, double preco) {
+    public Produto(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco) {
         this.nome = nome;
         this.codigoBarras = codigoBarras;
         this.descricao = descricao;
+        this.categoria = categoria;
         this.fabricante = fabricante;
         this.preco = preco;
     }
