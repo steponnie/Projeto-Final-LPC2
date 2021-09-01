@@ -14,6 +14,11 @@ public class ArquivoTexto {
     private Carrinho carrinho;
     private String produtos;
 
+    public ArquivoTexto() {
+        
+    }
+    
+
     public Carrinho getCarrinho() {
         return carrinho;
     }
@@ -79,11 +84,8 @@ public class ArquivoTexto {
     }
     
     //mudar de lugar depois
-    public String produtosNotaFiscal(){
+    public void produtosNotaFiscal(){
         carrinho.getQuantificadorProduto().forEach((produto,quantidade) -> setProdutos(getProdutos() +"\n"+
-                produto.getNome() + "\t\t"+ quantidade + "x" + produto.getPreco() +   ));
-         
-        
-        return "";
+                produto.getNome() + "\t\t"+ quantidade + "x" + produto.getPreco() + "\t" + produto.calculaPreco()  ));
     }
 }
