@@ -10,12 +10,12 @@ import java.io.FileNotFoundException;
 import logica.Carrinho;
 
 
-public class ArquivoTexto {
+public class Notinha {
     private Carrinho carrinho;
     private String produtos;
 
-    public ArquivoTexto() {
-        
+    public Notinha() {
+        this.produtos = "";
     }
     
 
@@ -83,9 +83,4 @@ public class ArquivoTexto {
         }
     }
     
-    //mudar de lugar depois
-    public void produtosNotaFiscal(){
-        carrinho.getQuantificadorProduto().forEach((produto,quantidade) -> setProdutos(getProdutos() +"\n"+
-                produto.getNome() + "\t\t"+ quantidade + "x" + produto.getPreco() + "\t" + produto.calculaPreco()  ));
-    }
 }

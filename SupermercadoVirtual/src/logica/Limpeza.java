@@ -10,48 +10,28 @@ package logica;
  * @author steph
  */
 public class Limpeza extends Produto {
-    protected boolean corporal; //true eh higiene pessoal e false eh higienizacao de ambiente
-    private String grupo;//sabonete, shampoo, amaciante...
-    private int quantidade;
+    private String grupo, categoria;//sabonete, shampoo, amaciante...
 
-    public Limpeza(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco, boolean corporal, String grupo, int quantidade) {
-        super(nome, codigoBarras, descricao, categoria, fabricante, preco);
-        this.corporal = corporal;
+    public Limpeza(String nome, String codigoBarras, Fabricante fabricante, double preco, String descricao, String grupo) {
+        super(nome, codigoBarras, fabricante, preco, descricao);
         this.grupo = grupo;
-        this.quantidade  = quantidade;
+        this.categoria = "Limpeza";
+
     }
 
-    public boolean isCorporal() {
-        return corporal;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCorporal(boolean corporal) {
-        this.corporal = corporal;
-    } 
-
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
     public String getGrupo() {
         return grupo;
     }
 
     public void setGrupo(String grupo) {
         this.grupo = grupo;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-    
-    @Override
-    public void setCategoria() {
-        this.categoria = "limpeza";
-    }
-    
-    @Override
-    public double calculaPreco(){
-        return this.preco = this.preco * this.quantidade;
     }
 }

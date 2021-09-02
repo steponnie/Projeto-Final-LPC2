@@ -12,27 +12,27 @@
    <children>
       <Pane fx:id="productInfoPanel" layoutX="44.0" layoutY="34.0" prefHeight="478.0" prefWidth="658.0" style="-fx-background-color: white;" visible="false">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="33.0" prefWidth="50.0" text="Nome:">
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="33.0" prefWidth="200.0" text="Nome: ">
                <font>
                   <Font name="Ubuntu Condensed" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="64.0" prefHeight="33.0" prefWidth="50.0" text="Preço">
+            <Label layoutX="14.0" layoutY="64.0" prefHeight="33.0" prefWidth="200.0" text="Preço: ">
                <font>
                   <Font name="Ubuntu Condensed" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="113.0" prefHeight="33.0" prefWidth="76.0" text="Descricao:">
+            <Label layoutX="14.0" layoutY="113.0" prefHeight="33.0" prefWidth="200.0" text="Descrição: ">
                <font>
                   <Font name="Ubuntu Condensed" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="165.0" prefHeight="33.0" prefWidth="76.0" text="Fabricante">
+            <Label layoutX="14.0" layoutY="165.0" prefHeight="33.0" prefWidth="200.0" text="Fabricante: ">
                <font>
                   <Font name="Ubuntu Condensed" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="223.0" prefHeight="33.0" prefWidth="124.0" text="Codigo de Barras">
+            <Label layoutX="14.0" layoutY="223.0" prefHeight="33.0" prefWidth="200.0" text="Código de Barras: ">
                <font>
                   <Font name="Ubuntu Condensed" size="19.0" />
                </font>

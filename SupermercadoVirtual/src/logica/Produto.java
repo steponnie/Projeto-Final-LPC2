@@ -10,17 +10,16 @@ package logica;
  * @author steph
  */
 public abstract class Produto{
-    private String nome, codigoBarras, descricao;
-    protected String categoria;
+    private String nome, codigoBarras;
+    protected String categoria, descricao;
     private Fabricante fabricante;
     protected double preco;
     
 
-    public Produto(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco) {
+    public Produto(String nome, String codigoBarras, Fabricante fabricante, double preco, String descricao) {
         this.nome = nome;
         this.codigoBarras = codigoBarras;
         this.descricao = descricao;
-        this.categoria = categoria;
         this.fabricante = fabricante;
         this.preco = preco;
     }

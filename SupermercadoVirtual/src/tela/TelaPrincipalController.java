@@ -73,10 +73,9 @@ public class TelaPrincipalController implements Initializable {
         categorias.setOnAction((event) -> FiltrarItem());
         
         categorias.getItems().add("(Nenhum)");
-        categorias.getItems().add("Categoria1");
-        categorias.getItems().add("Categoria2");
-        categorias.getItems().add("Categoria3");
-        categorias.getItems().add("Categoria4");
+        categorias.getItems().add("Alimentos");
+        categorias.getItems().add("Limpeza");
+        categorias.getItems().add("Bebidas");
     }
     
     public void FiltrarItem(){
@@ -145,13 +144,13 @@ public class TelaPrincipalController implements Initializable {
     //carrega as informacoes do produto e preenche os campos de informacao
     public void loadProductInfo(int index){
         Produto prod = productListPositionTracker.get(index);
-        infoNameField.setText(prod.getNome());
-        infoPriceField.setText(String.format("R$%.2f",prod.getPreco()));
-        infoDescriptionField.setText(prod.getDescricao());
-        infoBarcodeField.setText(prod.getCodigoBarras());
+        infoNameField.setText("     " + prod.getNome());
+        infoPriceField.setText(String.format("     R$%.2f",prod.getPreco()));
+        infoDescriptionField.setText("     " + prod.getDescricao());
+        infoBarcodeField.setText("      " + prod.getCodigoBarras());
         
         Fabricante fab = prod.getFabricante();
-        infoManufacturerField.setText(fab.getNome());
+        infoManufacturerField.setText("     " + fab.getNome());
     }
     
 

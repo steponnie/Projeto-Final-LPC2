@@ -84,5 +84,7 @@ public class Carrinho {
                 this.quantificadorProduto.put(this.listaCompra.get(i), 1);
             }
         }
+        
+        
     }
 }

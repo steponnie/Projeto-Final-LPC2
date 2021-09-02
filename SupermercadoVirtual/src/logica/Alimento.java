@@ -9,13 +9,14 @@ package logica;
  *
  * @author steph
  */
-public abstract class Alimento extends Produto {
-    protected boolean unitario; //true eh unitario e false eh a quilo
-    private String grupo;//na vdd ou é um ou é outro. secos e frios é quantidade. resto é peso
+public class Alimento extends Produto {
+    private String categoria, grupo;//na vdd ou é um ou é outro. secos e frios é quantidade. resto é peso
     
-    public Alimento(String nome, String codigoBarras, String descricao, String categoria, Fabricante fabricante, double preco, String grupo) {
-        super(nome, codigoBarras, descricao, categoria, fabricante, preco);
+    
+    public Alimento(String nome, String codigoBarras, Fabricante fabricante, double preco, String descricao, String grupo) {
+        super(nome, codigoBarras, fabricante, preco, descricao);
         this.grupo = grupo;
+        this.categoria = "Alimentos";
     }
 
     public String getGrupo() {
@@ -26,17 +27,11 @@ public abstract class Alimento extends Produto {
         this.grupo = grupo;
     }
 
-    public boolean isUnitario() {
-        return unitario;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setUnitario() {
-        this.unitario = unitario;
-    }
-    
-    @Override
     public void setCategoria() {
-        this.categoria = "alimento";
+        this.categoria = categoria;
     }
-    
 }

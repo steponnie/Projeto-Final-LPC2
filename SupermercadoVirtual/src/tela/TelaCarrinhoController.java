@@ -63,7 +63,6 @@ public class TelaCarrinhoController implements Initializable {
         actualRemoveButton.setOnAction(event -> {this.removeQtd(event);});
         String quantidade = new String();
         quantidade = String.valueOf(carrinho.getQuantificadorProduto().get(prod)); //transforma a quantidade de cada produto em string
-        System.out.println(carrinho.getQuantificadorProduto().get(prod));
 
         listGridPane.add(new Label(prod.getNome()), 0, actualRow);
         listGridPane.add(new Label(quantidade), 1, actualRow);//adiciona a quantidade de produto na segunda coluna
@@ -133,21 +132,31 @@ public class TelaCarrinhoController implements Initializable {
         actualStage.setScene(new Scene(root)); 
     }
     
-    //finalizar a compra NAO TEMINEI AINDA
+    //finalizar a compra e produzir a nota fiscal
     public void finishBuyPressed(ActionEvent ev) throws IOException{
         Stage actualStage = (Stage) finishBuy.getScene().getWindow();
         String arq = "NotaFiscal.txt";
-        ArquivoTexto arquivo = new ArquivoTexto();
-        arquivo.produtosNotaFiscal();
-        String texto = new String();
-        
-        texto=	"\tSUPERMERCADO VIRTUAL\n" + "CNPJ: 12.3234.2343 \t Stephanie Gomes\n" +
-	"\ttelefone: (31)98002-8922\n\n" + "PRODUTO \t\t quantidade \t preço\n" +
-                arquivo.getProdutos();
+        Notinha arquivo = new Notinha();
 
-        ArquivoTexto.write(arq, texto);
-        ArquivoTexto.read(arq);
+        carrinho.contarProduto();
+        carrinho.calcularValorCompra();
+        double valorTotal = carrinho.getValorCompra();
+        
+        carrinho.getQuantificadorProduto().forEach((produto,quantidade) -> arquivo.setProdutos(arquivo.getProdutos() +"\n"+
+        produto.getNome() + "\t "+ quantidade + "x" + produto.getPreco() + "\t\t R$" + (quantidade*produto.getPreco())  ));
+        
+        String texto = "\tSUPERMERCADO VIRTUAL\n\n" + "CNPJ: 12.3234.2343\n" +
+	"telefone: (31)98002-8922\n\n" + "PRODUTO \t\t QUANTIDADE \t PREÇO\n" +
+        arquivo.getProdutos() + "\n\n\t\t\t QUANTIDADE      TOTAL\n" + "\n\t\t\t "+ carrinho.getListaCompra().size() +
+        "\t\t R$" + valorTotal + "\n\nAgradecemos a preferência!\n\n" +
+        "Tributos Incidentes Lei Federal 12.741/12\nTotal Pago de Imposto - R$" + String.format("R$%.2f",0.1*valorTotal) + "\nFederal - " + String.format("R$%.2f",0.05*valorTotal)+
+        "    Estadual - " + String.format("R$%.2f",0.03*valorTotal) + "    Municipal - " + String.format("R$%.2f",0.02*valorTotal);
+        
+        Notinha.write(arq, texto);
+        Notinha.read(arq);
         actualStage.close();
+        
+        System.out.println("Sua nota fiscal foi impressa.");
     }
     
     @Override
