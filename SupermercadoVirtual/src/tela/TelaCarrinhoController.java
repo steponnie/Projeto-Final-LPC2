@@ -1,8 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Nomes: Eduardo Gomes de Freitas, Higo Antunes Pina, Stéphanie Fonseca de Oliveira gomes Magalhães
+*/
 package tela;
 
 import java.io.IOException;
@@ -30,29 +28,22 @@ import logica.Carrinho;
 import logica.Estoque;
 import logica.Produto;
 
-/**
- * FXML Controller class
- *
- * @author hugo
- */
 public class TelaCarrinhoController implements Initializable {
 
     Carrinho carrinho;
     Estoque estoque;
     
     private HashMap<Integer,Produto> productGridPositionTracker;
-    //
+    
     private int actualPrefHeight;
     private int actualRow;
     
-    //Paineis
     @FXML private GridPane listGridPane;
     @FXML private ScrollPane productList;
     
     @FXML private Button finishBuy;
     @FXML private Button goBack;
     
-    //mesma logica do addNewRow anterior
     public void addNewRow(Produto prod){
         actualPrefHeight += 40;
         listGridPane.setPrefHeight(actualPrefHeight);
@@ -62,16 +53,15 @@ public class TelaCarrinhoController implements Initializable {
         Button actualRemoveButton = new Button("-");
         actualRemoveButton.setOnAction(event -> {this.removeQtd(event);});
         String quantidade = new String();
-        quantidade = String.valueOf(carrinho.getQuantificadorProduto().get(prod)); //transforma a quantidade de cada produto em string
+        quantidade = String.valueOf(carrinho.getQuantificadorProduto().get(prod));
 
         listGridPane.add(new Label(prod.getNome()), 0, actualRow);
-        listGridPane.add(new Label(quantidade), 1, actualRow);//adiciona a quantidade de produto na segunda coluna
+        listGridPane.add(new Label(quantidade), 1, actualRow);
         listGridPane.add(actualRemoveButton,2,actualRow);
         
         productGridPositionTracker.put(actualRow, prod);
     }
     
-    //lista os itens do carrinho
     private void listShoppingCart(){
         carrinho.contarProduto();
         carrinho.getQuantificadorProduto().forEach((produto, quantidade) -> addNewRow(produto));
@@ -79,7 +69,6 @@ public class TelaCarrinhoController implements Initializable {
         
     }
     
-    //remove item do carrinho e chama updateShoppingCartList()
     public void removeQtd(ActionEvent ev){
         int productRowIndex = GridPane.getRowIndex((Node)ev.getSource());
         Produto produto = productGridPositionTracker.get(productRowIndex);
@@ -88,7 +77,6 @@ public class TelaCarrinhoController implements Initializable {
         
     }
     
-    //
     public void updateShoppingCartList(){
         listGridPane = new GridPane();
         Label textProduto = new Label("Produto");
@@ -123,7 +111,6 @@ public class TelaCarrinhoController implements Initializable {
     }
     
     
-    //Volta para a tela principal
     public void backToMainScreen() throws IOException{
         
         Stage actualStage = (Stage) goBack.getScene().getWindow();
@@ -132,7 +119,6 @@ public class TelaCarrinhoController implements Initializable {
         actualStage.setScene(new Scene(root)); 
     }
     
-    //finalizar a compra e produzir a nota fiscal
     public void finishBuyPressed(ActionEvent ev) throws IOException{
         Stage actualStage = (Stage) finishBuy.getScene().getWindow();
         String arq = "NotaFiscal.txt";

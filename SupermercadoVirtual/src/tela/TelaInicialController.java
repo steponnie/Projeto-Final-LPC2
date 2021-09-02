@@ -1,8 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Nomes: Eduardo Gomes de Freitas, Higo Antunes Pina, Stéphanie Fonseca de Oliveira gomes Magalhães
+*/
 package tela;
 
 import java.io.IOException;
@@ -19,11 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import logica.Estoque;
 
-/**
- * FXML Controller class
- *
- * @author hugo
- */
+
 public class TelaInicialController implements Initializable {
     
     public static String CUSTOMERNAME;

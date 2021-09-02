@@ -3,11 +3,11 @@ Nomes: Eduardo Gomes de Freitas, Higo Antunes Pina, Stéphanie Fonseca de Olivei
 */
 package logica;
 
-public class Limpeza extends Produto {
+public class Higiene extends Produto {
 
-    public Limpeza(String nome, String codigoBarras, Fabricante fabricante, double preco, String descricao) {
+    public Higiene(String nome, String codigoBarras, Fabricante fabricante, double preco, String descricao) {
         super(nome, codigoBarras, fabricante, preco, descricao);
-        this.categoria = "Limpeza";
+        this.categoria = "Higiene Pessoal";
 
     }
 
@@ -18,6 +18,6 @@ public class Limpeza extends Produto {
 
     @Override
     public void setCategoria() {
-        this.categoria = "Limpeza";
+        this.categoria = "Higiene Pessoal";
     }
 }

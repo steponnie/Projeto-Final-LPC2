@@ -5,16 +5,14 @@ telefone: (31)98002-8922
 
 PRODUTO 		 QUANTIDADE 	 PREÇO
 
-RestoDontê          	 1x10.0		 R$10.0
-Bicoito Bolacha     	 1x1.5		 R$1.5
-Pizza Congelada     	 2x15.0		 R$30.0
+Uísque de Patrão      	 3x999.0		 R$2997.0
 
 			 QUANTIDADE      TOTAL
 
-			 4		 R$41.5
+			 3		 R$2997.0
 
 Agradecemos a preferência!
 
 Tributos Incidentes Lei Federal 12.741/12
-Total Pago de Imposto - R$R$4,15
-Federal - R$2,08    Estadual - R$1,24    Municipal - R$0,83
+Total Pago de Imposto - R$R$299,70
+Federal - R$149,85    Estadual - R$89,91    Municipal - R$59,94

@@ -1,12 +1,11 @@
+/*
+Nomes: Eduardo Gomes de Freitas, Higo Antunes Pina, Stéphanie Fonseca de Oliveira gomes Magalhães
+*/
 package logica;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- *
- * @author steph
- */
 public class Carrinho {
     
     public static Carrinho REFERENCIACARRINHO;
