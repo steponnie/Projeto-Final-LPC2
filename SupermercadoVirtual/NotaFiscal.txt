@@ -1,18 +1,19 @@
+
 	SUPERMERCADO VIRTUAL
 
 CNPJ: 12.3234.2343
-telefone: (31)98002-8922
+Telefone: (31)98002-8922
 
 PRODUTO 		 QUANTIDADE 	 PREÇO
 
-Uísque de Patrão      	 3x999.0		 R$2997.0
+Feijao Rosinha      	 8x8.0		 R$64.0
 
 			 QUANTIDADE      TOTAL
 
-			 3		 R$2997.0
+			 8		 R$64.0
 
 Agradecemos a preferência!
 
 Tributos Incidentes Lei Federal 12.741/12
-Total Pago de Imposto - R$R$299,70
-Federal - R$149,85    Estadual - R$89,91    Municipal - R$59,94
+Total Pago de Imposto - R$6,40
+Federal - R$3,20    Estadual - R$1,92    Municipal - R$1,28

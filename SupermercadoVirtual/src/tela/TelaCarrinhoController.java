@@ -131,11 +131,11 @@ public class TelaCarrinhoController implements Initializable {
         carrinho.getQuantificadorProduto().forEach((produto,quantidade) -> arquivo.setProdutos(arquivo.getProdutos() +"\n"+
         produto.getNome() + "\t "+ quantidade + "x" + produto.getPreco() + "\t\t R$" + (quantidade*produto.getPreco())  ));
         
-        String texto = "\tSUPERMERCADO VIRTUAL\n\n" + "CNPJ: 12.3234.2343\n" +
-	"telefone: (31)98002-8922\n\n" + "PRODUTO \t\t QUANTIDADE \t PREÇO\n" +
+        String texto = "\n\tSUPERMERCADO VIRTUAL\n\n" + "CNPJ: 12.3234.2343\n" +
+	"Telefone: (31)98002-8922\n\n" + "PRODUTO \t\t QUANTIDADE \t PREÇO\n" +
         arquivo.getProdutos() + "\n\n\t\t\t QUANTIDADE      TOTAL\n" + "\n\t\t\t "+ carrinho.getListaCompra().size() +
         "\t\t R$" + valorTotal + "\n\nAgradecemos a preferência!\n\n" +
-        "Tributos Incidentes Lei Federal 12.741/12\nTotal Pago de Imposto - R$" + String.format("R$%.2f",0.1*valorTotal) + "\nFederal - " + String.format("R$%.2f",0.05*valorTotal)+
+        "Tributos Incidentes Lei Federal 12.741/12\nTotal Pago de Imposto - " + String.format("R$%.2f",0.1*valorTotal) + "\nFederal - " + String.format("R$%.2f",0.05*valorTotal)+
         "    Estadual - " + String.format("R$%.2f",0.03*valorTotal) + "    Municipal - " + String.format("R$%.2f",0.02*valorTotal);
         
         Notinha.write(arq, texto);
