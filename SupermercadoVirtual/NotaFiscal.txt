@@ -1,0 +1,21 @@
+
+	SUPERMERCADO VIRTUAL
+
+CNPJ: 12.3234.2343
+Telefone: (31)98002-8922
+
+PRODUTO 		 QUANTIDADE 	 PREÇO
+
+Moranguinho Especial	 2x13.0		 R$26.0
+Batata de Rostinho  	 1x3.5		 R$3.5
+Feijao Rosinha      	 1x8.0		 R$8.0
+
+			 QUANTIDADE      TOTAL
+
+			 4		 R$37.5
+
+Agradecemos a preferência!
+
+Tributos Incidentes Lei Federal 12.741/12
+Total Pago de Imposto - R$3,75
+Federal - R$1,88    Estadual - R$1,13    Municipal - R$0,75

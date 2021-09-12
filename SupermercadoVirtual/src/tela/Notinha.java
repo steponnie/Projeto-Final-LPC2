@@ -1,3 +1,6 @@
+/*
+Nomes: Eduardo Gomes de Freitas, Hugo Antunes Pina, Stéphanie Fonseca de Oliveira gomes Magalhães
+*/
 package tela;
 
 
